@@ -1,0 +1,39 @@
+On server:
+cd git
+./newproject altruism
+
+
+
+On workstation:
+cd rails
+git clone ssh://bryce@foodco-op.net/home/bryce/git/altruism
+rails altruism --database=mysql
+cd altruism
+git add *
+git commit -a
+
+emacs .git/config
+   -->  # add something to make git push work properly
+
+
+git push
+
+
+You asked me to pull without telling me which branch you
+want to merge with, and 'branch.master.merge' in
+your configuration file does not tell me either.	Please
+specify which branch you want to merge on the command line and
+try again (e.g. 'git pull <repository> <refspec>').
+See git-pull(1) for details.
+
+If you often merge with the same branch, you may want to
+configure the following variables in your configuration
+file:
+
+    branch.master.remote = <nickname>
+    branch.master.merge = <remote-ref>
+    remote.<nickname>.url = <url>
+    remote.<nickname>.fetch = <refspec>
+
+See git-config(1) for details.
+
