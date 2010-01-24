@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <%= stylesheet_link_tag "screen" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
+    <!--[if IE]>
+      <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+  </head>
+<body>
+  <%= render :partial => "/layouts/flashes" %>
+
+  <div id="content">
+    <%= @content_for_layout %>
+  </div>
+
+  <div id="navigation">
+    <%= render :partial => "/users/nav" %>
+  </div>
+</body>
+</html>

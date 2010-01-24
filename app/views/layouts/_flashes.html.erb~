@@ -1,0 +1,6 @@
+<div id="messages">
+<% flash.each{ |k,v| -%>
+  <% unless v.blank? -%>
+    <p class="message <%= k %>"><%= h(v) %></p>
+  <% end -%>
+<% } -%>
