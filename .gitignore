@@ -1,0 +1,5 @@
+*~
+*#
+public/sass_stylesheets/.sass-cachelog/*
+tmp/*
+db/schema.rb
