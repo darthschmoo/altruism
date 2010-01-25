@@ -18,7 +18,20 @@ q:before, q:after, blockquote:before, blockquote:after { content: ""; }
 img a { border: none; }
 
 /* The *:focus rule is reset and suppresses link outlining. You _must_ remember to redefine your own outline, as it’s an important accessibility aid. E.g. *:focus   outline: #ccc dotted medium */
+*, body, ol, ul, td { font-family: veranda, sans-serif; font-size: 14pt; }
+
 div#content { border: 3px solid #7777ff; -moz-border-radius: 3em; margin-top: 6em; margin-left: 2em; margin-right: 10em; padding: 1em; padding-left: 3em; background-color: #ddddff; -moz-box-shadow: 1em 1em 5px #aaaacc; }
+div#content div.errorExplanation { -moz-border-radius: 1em; background-color: red; width: 25%; margin-right: 2em; margin-bottom: 1em; padding-bottom: 0.6em; }
+div#content div.errorExplanation h2 { -moz-border-radius-topleft: 1em; -moz-border-radius-topright: 1em; background-color: black; color: white; border: 3px solid black; text-align: center; padding: 0.5em; margin: 0em; }
+div#content div.errorExplanation * { margin: 0.5em; }
+div#content div.fieldWithErrors input, div#content div.fieldWithErrors select { color: red; }
+div#content div.event { position: relative; top: 0px; background-color: white; margin: 0.5em; }
+div#content div.event div.name { font-size: 2.0em; line-height: 1.0em; font-family: times; background-color: #444444; color: #dddddd; padding: 0.1em 0.5em 0.1em 0.5em; }
+div#content div.event div.duration { font-style: italic; text-align: right; color: #aaaaaa; }
+div#content div.event div.description { background-color: #ffffbb; }
+div#content div.event div.menu { color: white; font-size: 0.7em; position: absolute; top: 0em; right: 0em; }
+div#content div.event div.menu *, div#content div.event div.menu a, div#content div.event div.menu div, div#content div.event div.menu a.menu { color: white; }
+div#content div.event div.menu a { border-width: 0px; text-decoration: none; }
 
 div#navigation { position: absolute; top: 0px; height: 6em; }
 div#navigation div#user_nav { -moz-border-radius: 0.5em; border: 2px solid #ffaa66; background-color: #ffddaa; padding: 0.7em; padding-top: 0.2em; padding-bottom: 0.2em; -moz-box-shadow: 0.4em 0.4em 3px #cc9944; }

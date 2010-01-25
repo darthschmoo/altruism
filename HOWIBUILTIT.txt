@@ -60,6 +60,12 @@ rake db:migrate RAILS_ENV=test
 rake
 
 
+# NOTE: The stuff below is wrapped up into a generator,
+# so try:
+#  > script/generate compass_sass
+#  > rake compass:import              # to translate existing files into css
+#  > rake compass:watch               # to automatically translate files when
+#                                     # changes are made to sass files
 mkdir public/sass_stylesheets
 compass --sass-dir public/sass_stylesheets --css-dir public/stylesheets --config config/compass.rb
 
@@ -74,6 +80,57 @@ namespace :compass do
     system("compass -w --sass-dir #{sass_dir} --css-dir #{css_dir} --config #{config}")
   end
 end
+
+
+
+
+git tag basic-authlogic-project
+
+
+
+
+script/plugin install git://github.com/elevation/event_calendar.git
+script/generate event_calendar -g
+      create  public/stylesheets/event_calendar.css
+      create  public/javascripts/event_calendar.js
+      create  app/models/event.rb
+      create  app/controllers/calendar_controller.rb
+      create  app/views/calendar
+      create  app/views/calendar/index.html.erb
+      create  app/helpers/calendar_helper.rb
+      exists  db/migrate
+      create  db/migrate/20100124110542_create_events.rb
+      route   map.calendar '/calendar/:year/:month', 
+              :controller => 'calendar', :action => 'index', 
+              :year => Time.zone.now.year, 
+              :month => Time.zone.now.month
+
+
+# cusomize event migration.  Should probably have added foreign keys,
+# but I guess that will come later.
+
+$ script/generate nifty_scaffold event --skip-model
+      exists  app/controllers
+      create  app/controllers/events_controller.rb
+      exists  app/helpers
+      create  app/helpers/events_helper.rb
+      create  app/views/events
+      create  app/views/events/index.html.erb
+      create  app/views/events/show.html.erb
+      create  app/views/events/new.html.erb
+      create  app/views/events/edit.html.erb
+      create  app/views/events/_form.html.erb
+       route  map.resources :events
+      exists  test/functional
+      create  test/functional/events_controller_test.rb
+
+
+# note to self, need niftier nifty scaffolds!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+# Added the following to my config/environment.rb, adding all subfolders
+# to load_paths.
+config.load_paths += Dir[File.join(Rails.root, "app", "**", "*")].delete_if{ |d| !File.directory?(d) } - config.load_paths
 
 
 

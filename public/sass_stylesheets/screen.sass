@@ -12,6 +12,37 @@
   *:focus
     outline: #ccc dotted medium
 
+
+=titleize
+  font-size: 2.0em
+  line-height: 1.0em
+  font-family: times
+  background-color: #444444
+  color: #dddddd
+  padding: 0.1em 0.5em 0.1em 0.5em
+
+=flowing-text
+  background-color: #ffffbb
+
+=relativize
+  position: relative
+  top: 0px
+
+=force_color(!color = black)
+  color= !color
+  *, a, div, a.menu
+    color= !color
+
+=undecorate_links
+  a
+    border-width: 0px
+    text-decoration: none
+
+
+*, body, ol, ul, td
+  font-family: veranda, sans-serif
+  font-size: 14pt
+
 div#content
   border: 3px solid #7777ff
   -moz-border-radius: 3em
@@ -24,6 +55,58 @@ div#content
   background:
     color: #ddddff
   -moz-box-shadow: 1em 1em 5px #aaaacc
+
+  div.errorExplanation
+    -moz-border-radius: 1em
+    background:
+      color: red
+    width: 25%
+    margin:
+      right: 2em
+      bottom: 1em
+    padding:
+      bottom: 0.6em
+
+    h2
+      -moz-border-radius-topleft: 1em
+      -moz-border-radius-topright: 1em
+      background-color: black
+      color: white
+      border: 3px solid black
+      text-align: center
+      padding: 0.5em
+      margin: 0em
+
+    *
+      margin: 0.5em
+
+  div.fieldWithErrors
+    input, select
+      color: red
+
+  div.event
+    +relativize
+    background-color: white
+    margin: 0.5em
+
+    div.name
+      +titleize
+
+    div.duration
+      font-style: italic
+      text-align: right
+      color: #aaaaaa
+
+    div.description
+      +flowing-text
+
+    div.menu
+      +force_color(white)
+      +undecorate_links
+      font-size: 0.7em
+      position: absolute
+      top: 0em
+      right: 0em
 
 div#navigation
   position: absolute

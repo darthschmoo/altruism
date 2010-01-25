@@ -13,6 +13,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  config.load_paths += Dir[File.join(Rails.root, "app", "**", "*")].delete_if{ |d| !File.directory?(d) } - config.load_paths
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
