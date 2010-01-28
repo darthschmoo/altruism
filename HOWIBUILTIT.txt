@@ -130,8 +130,11 @@ $ script/generate nifty_scaffold event --skip-model
 
 # Added the following to my config/environment.rb, adding all subfolders
 # to load_paths.
-config.load_paths += Dir[File.join(Rails.root, "app", "**", "*")].delete_if{ |d| !File.directory?(d) } - config.load_paths
+config.load_paths = (config.load_paths + Dir[File.join(Rails.root, "app", "**", "*")].delete_if{ |d| !File.directory?(d) }).uniq
 
+
+
+Added chronic gem, to let dates be specified in a quick, naturalish way.
 
 
 

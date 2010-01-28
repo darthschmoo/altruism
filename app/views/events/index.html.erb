@@ -8,11 +8,12 @@
       <div class="duration"><%= event.start_at %> thru <%= event.end_at %></div>
 
       <div class="description">
-        <strong>Description:</strong> <%= h event.description %></div>
+        <%= r event.description %>
+      </div>
 
       <div class="menu">
         <%= link_to "Show", event %> |
-        <%= link_to "Calendar", ??? %>
+        <%= link_to "Calendar", calendar_url( event.calendar ) %> |
         <%= link_to "Edit", edit_event_path(event) %> |
         <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %>
      </div>
