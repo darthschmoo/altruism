@@ -1,0 +1,19 @@
+one:
+  parent_id: 1
+  children_count: 1
+  ancestors_count: 1
+  descendants_count: 1
+  hidden: false
+  name: MyString
+  description: MyString
+  position: 1
+
+two:
+  parent_id: 1
+  children_count: 1
+  ancestors_count: 1
+  descendants_count: 1
+  hidden: false
+  name: MyString
+  description: MyString
+  position: 1

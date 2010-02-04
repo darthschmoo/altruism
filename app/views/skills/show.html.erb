@@ -1,0 +1,42 @@
+<% title "Skill" %>
+
+<p>
+  <strong>Parent:</strong>
+  <%=h @skill.parent_id %>
+</p>
+<p>
+  <strong>Children Count:</strong>
+  <%=h @skill.children_count %>
+</p>
+<p>
+  <strong>Ancestors Count:</strong>
+  <%=h @skill.ancestors_count %>
+</p>
+<p>
+  <strong>Descendants Count:</strong>
+  <%=h @skill.descendants_count %>
+</p>
+<p>
+  <strong>Hidden:</strong>
+  <%=h @skill.hidden %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%=h @skill.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @skill.description %>
+</p>
+<p>
+  <strong>Position:</strong>
+  <%=h @skill.position %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_skill_path(@skill) %> |
+  <%= link_to "Destroy", @skill, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", skills_path %> |
+  <%= link_to "New Child", :controller => "skills", :action => "new", :skill => { :parent_id => @skill.id } %> |
+  <%= link_to "New Sibling", :controller => "skills", :action => "new", :skill => { :parent_id => @skill.parent_id } %>
+</p>

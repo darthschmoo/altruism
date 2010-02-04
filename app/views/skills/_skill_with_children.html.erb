@@ -1,0 +1,15 @@
+<% skill = skill_with_children %>
+<ul class="skill_tree">
+  <li class="skill_tree_item"><%= skill.name %><br/>
+    <span class="menu">
+      <%= link_to "Show", skill %>
+      <%= link_to "Edit", edit_skill_path(skill) %>
+      <%= link_to "Destroy", skill, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to "New Child", :controller => "skills", :action => "new", :skill => { :parent_id => skill.id } %>
+    </span>
+  </li>
+
+  <% for child in skill.children -%>
+    <%= render :partial => "skill_with_children", :object => child %>
+  <% end -%>
+</ul>

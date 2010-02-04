@@ -1,0 +1,17 @@
+<% form_for @skill do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :parent_id %>
+  <p>
+    <%= f.label :hidden %><br />
+    <%= f.check_box :hidden %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

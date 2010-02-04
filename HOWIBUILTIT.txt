@@ -100,9 +100,9 @@ script/generate event_calendar -g
       create  app/helpers/calendar_helper.rb
       exists  db/migrate
       create  db/migrate/20100124110542_create_events.rb
-      route   map.calendar '/calendar/:year/:month', 
-              :controller => 'calendar', :action => 'index', 
-              :year => Time.zone.now.year, 
+      route   map.calendar '/calendar/:year/:month',
+              :controller => 'calendar', :action => 'index',
+              :year => Time.zone.now.year,
               :month => Time.zone.now.month
 
 
@@ -134,8 +134,22 @@ config.load_paths = (config.load_paths + Dir[File.join(Rails.root, "app", "**", 
 
 
 
-Added chronic gem, to let dates be specified in a quick, naturalish way.
+# Added chronic gem, to let dates be specified in a quick, naturalish way.
 
 
+
+# Added plugin acts_as_category, to allow for creation of nested skill categories.
+script/plugin install git://github.com/funkensturm/acts_as_category.git
+script/generate nifty_scaffold skill \
+                               parent_id:integer \
+                               children_count:integer \
+                               ancestors_count:integer \
+                               descendants_count:integer \
+                               hidden:boolean \
+                               name:string \
+                               description:string \
+                               position:integer -g
+
+rake db:migrate
 
 
