@@ -2,3 +2,7 @@
 
 <%= render :partial => 'form' %>
 
+<%= link_to "Calendar", calendar_url(:year => Date.today.year, :month => Date.today.month) %> |
+<%= link_to "Events", events_url %> |
+<%= link_to "Skills", skills_url %> |
+<%= link_to "Users", users_url %>

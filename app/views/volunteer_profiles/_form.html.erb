@@ -1,0 +1,13 @@
+<% form_for @volunteer_profile do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+
+  <% for skill in @skills -%>
+    <%  -%>
+    <%= check_box_tag "volunteer_profile[skill_ids][]", skill.id, @volunteer_profile.skills.include?(skill) %> <%= skill.name %><br/>
+  <% end -%>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

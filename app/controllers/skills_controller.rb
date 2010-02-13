@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  before_filter :must_be_logged_in
+
   def index
     @skills = Skill.all
   end
@@ -40,5 +42,13 @@ class SkillsController < ApplicationController
     @skill.destroy
     flash[:notice] = "Successfully destroyed skill."
     redirect_to skills_url
+  end
+
+  def claim
+
+  end
+
+  def unclaim
+
   end
 end

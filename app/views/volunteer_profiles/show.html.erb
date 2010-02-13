@@ -1,0 +1,31 @@
+<% title "Volunteer Profile" %>
+
+<p>
+  <strong>User:</strong>
+  <%=h @volunteer_profile.user.username %>
+</p>
+
+<p>
+  <strong></strong>
+  <%= h 0 %>
+</p>
+<p>
+  <strong></strong>
+  <%= h 0 %>
+</p>
+<p>
+  <strong></strong>
+  <%= h 0 %>
+</p>
+<p>
+  <strong></strong>
+  <%= h 0 %>
+</p>
+
+<%= render :partial => "/skills/skill", :collection => @volunteer_profile.skills %>
+
+<p>
+  <%= link_to "Edit", edit_volunteer_profile_path(@volunteer_profile) %> |
+  <%= link_to "Destroy", @volunteer_profile, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", volunteer_profiles_path %>
+</p>

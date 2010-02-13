@@ -6,3 +6,5 @@ db/schema.rb
 vendor/plugins/event_calendar
 public/sass_stylesheets/.sass_cache
 public/sass_stylesheets/.sass_cache/
+log/*.log
+public/sass_stylesheets/.sass-cache/

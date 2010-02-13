@@ -1,0 +1,17 @@
+<% title "Volunteer Profiles" %>
+
+<table>
+  <tr>
+    <th>User</th>
+  </tr>
+  <% for volunteer_profile in @volunteer_profiles %>
+    <tr>
+      <td><%=h volunteer_profile.user_id %></td>
+      <td><%= link_to "Show", volunteer_profile %></td>
+      <td><%= link_to "Edit", edit_volunteer_profile_path(volunteer_profile) %></td>
+      <td><%= link_to "Destroy", volunteer_profile, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Volunteer Profile", new_volunteer_profile_path %></p>
