@@ -8,42 +8,27 @@ module BCA
 
     module HasHoursMacro
       def has_hours(options = {})
-        puts "has_hours"
+        has_many :hours
+        label = options[:label] || :open
+
         self.extend(ClassMethods)
         self.send(:include, InstanceMethods)
-        if options[:label]
-          self.send(:add_has_hours_finder_function, options[:label])
-        else
-          self.send(:add_has_hours_finder_function)
-        end
 
-        has_many :hours
+        named_scope label, lambda { |day, from, to|
+          { :conditions => ["day = ? AND start_at <= ? AND end_at >= ?", day, from, to ] }
+        }
       end
     end
 
     module ClassMethods
-      # def another_hours_classmethod
-      #   nil
-      # end
-
-      protected
-      def add_has_hours_finder_function(label = "open")
-        eval <<-EOS
-          @has_hours_label = :#{label}
-          attr_accessor :has_hours_label
-          def find_#{label}( from = Time.now, to = 2.hours.from_now )
-            []
-          end
-        EOS
-      end
     end
 
     module InstanceMethods
-      # def hours
-      #   puts "We're always open!"
-      # end
+      def available_during_hours?(day, from_time, to_time)
+        self.hours.detect{ |h|
+          h.spans(from_time, to_time)
+        }
+      end
     end
   end
 end
-
-

@@ -3,7 +3,6 @@ class Event < ActiveRecord::Base
   attr_accessor :start_at_text, :end_at_text
 
   validate do |event|
-    puts "1"
     _start = Chronic.parse(event.start_at_text)
     _end   = Chronic.parse(event.end_at_text)
 
@@ -15,7 +14,6 @@ class Event < ActiveRecord::Base
   end
 
   validate do |event|
-    puts "2"
     if event.start_at && event.end_at
       unless event.start_at < event.end_at
         event.errors.add(:start_time, "must begin before it ends.")

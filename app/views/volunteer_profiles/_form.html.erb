@@ -9,5 +9,11 @@
     <%  -%>
     <%= check_box_tag "volunteer_profile[skill_ids][]", skill.id, @volunteer_profile.skills.include?(skill) %> <%= skill.name %><br/>
   <% end -%>
+
+
+  <p>Hours available?</p>
+  <% for day in (0..6) -%>
+
+  <% end -%>
   <p><%= f.submit "Submit" %></p>
 <% end %>
