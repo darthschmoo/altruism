@@ -8,7 +8,7 @@ module BCA
 
     module HasHoursMacro
       def has_hours(options = {})
-        has_many :hours
+        has_many :hours, :as => :hours_target
         label = options[:label] || :open
 
         self.extend(ClassMethods)
