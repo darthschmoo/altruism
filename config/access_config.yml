@@ -1,0 +1,9 @@
+--- !map:HashWithIndifferentAccess
+development:
+
+test:
+
+production:
+
+shared:
+  user_model: User
