@@ -1,3 +1,0 @@
-# AccessControls
-module AccessControl
-end

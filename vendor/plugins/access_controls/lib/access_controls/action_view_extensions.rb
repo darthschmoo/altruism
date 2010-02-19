@@ -1,4 +1,4 @@
-module AccessControl
+module AccessControls
   module ActionViewExtensions
     def visible_with_permission(*permissions, &block)
       yield if block_given? && Role.get_user.has_permission?(*permissions)
