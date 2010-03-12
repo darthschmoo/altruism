@@ -53,3 +53,11 @@ module AccessControls
     end
   end
 end
+
+module ActiveRecord
+  class Base
+    def self.has_access_controls
+      self.include(AccessControls::UserModelMethods)
+    end
+  end
+end

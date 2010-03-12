@@ -12,8 +12,7 @@
 
 
   <p>Hours available?</p>
-  <%= render :partial => "/hours/day_definition", :collection => (0..6) %>
-
+  <%= render :partial => "/hours/day_definition", :collection => (0..6), :locals => { :target => @volunteer_profile } %>
 
   <p><%= f.submit "Submit" %></p>
 <% end %>
